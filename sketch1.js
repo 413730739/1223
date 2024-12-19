@@ -75,8 +75,8 @@ function drawCharacter(images, animation, frameIndex, x, y, isFlipped, animation
         images[animation],
         -anim.width / 2,
         -anim.height / 2,
-        anim.width * 5, // 放大一倍
-        anim.height * 5, // 放大一倍
+        anim.width *3, // 放大一倍
+        anim.height * 3, // 放大一倍
         frameIndex * anim.width,
         0,
         anim.width,
@@ -91,8 +91,8 @@ function drawCharacter(images, animation, frameIndex, x, y, isFlipped, animation
         images[animation],
         -anim.width / 2,
         -anim.height / 2,
-        anim.width * 5, // 放大一倍
-        anim.height * 5, // 放大一倍
+        anim.width * 3, // 放大一倍
+        anim.height * 3, // 放大一倍
         frameIndex * anim.width,
         0,
         anim.width,
@@ -203,7 +203,7 @@ function draw() {
     char2FrameIndex = (char2FrameIndex + 1) % characterAnimations.character2[char2CurrentAnimation].frames;
   }
    // 繪製角色1的名字和血量條
-   const healthBarScale = 5; // 放大比例
+   const healthBarScale = 3; // 放大比例
    const barWidth = 200 * healthBarScale; // 放大後的血量條寬度
    const barHeight = 20 * healthBarScale; // 放大後的血量條高度
    const textSizeScale = 16 * healthBarScale; // 放大後的文字大小
@@ -363,8 +363,8 @@ function drawMissiles() {
     image(
       character2Images.missile,
       0, 0,
-      anim.width *3, // 放大寬度
-      anim.height *3, // 放大高度
+      anim.width *1, // 放大寬度
+      anim.height *1, // 放大高度
       frame * anim.width,
       0,
       anim.width,
@@ -398,7 +398,7 @@ function updateMissiles() {
     missile.x += missile.speed;
 
     // 檢測是否擊中角色2
-    if (missile.x > char2X - 250 && missile.x < char2X + 250 && missile.y > char2Y - 250 && missile.y < char2Y + 250) {
+    if (missile.x > char2X - 150 && missile.x < char2X + 150 && missile.y > char2Y - 150 && missile.y < char2Y + 150) {
       missiles1.splice(index, 1); // 移除飛彈
       char2CurrentAnimation = 'attacked'; // 切換到受擊動畫
       char2AttackedTimer = FRAME_DELAY * 5; // 設定受擊動畫時間
@@ -411,7 +411,7 @@ function updateMissiles() {
     missile.x += missile.speed;
 
     // 檢測是否擊中角色1
-    if (missile.x > char1X - 250 && missile.x < char1X + 250&& missile.y > char1Y - 250 && missile.y < char1Y + 250) {
+    if (missile.x > char1X - 150 && missile.x < char1X + 150&& missile.y > char1Y - 150 && missile.y < char1Y + 150) {
       missiles2.splice(index, 1); // 移除飛彈
       char1CurrentAnimation = 'attacked'; // 切換到受擊動畫
       char1AttackedTimer = FRAME_DELAY * 5; // 設定受擊動畫時間
